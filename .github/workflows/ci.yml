@@ -19,11 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python
         # https://docs.github.com/actions/tutorials/build-and-test-code/python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.11"
           cache: pip
@@ -47,7 +47,7 @@ jobs:
     needs: test
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Build production image
         run: docker build --tag day12-chat:${{ github.sha }} .
@@ -63,7 +63,7 @@ jobs:
       PUBLIC_URL: https://chat-service-production-aaff.up.railway.app
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Deploy tested revision
         # https://docs.railway.com/cli/deploying#cicd-integration
